@@ -10,6 +10,7 @@
 package mplayer
 
 import (
+	"fmt"
 	"time"
 )
 
@@ -25,7 +26,7 @@ func Skip() {
 
 // PlayAndWait loads the given file and block until the file is done playing.
 func PlayAndWait(path string) {
-	SendCommand("loadfile " + path)
+	SendCommand(fmt.Spritnf("loadfile \"{}\"", path))
 	hasStopSignalListeners = true
 
 	// Send a query for the path every seconds. The response is expected in
