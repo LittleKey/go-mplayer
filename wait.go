@@ -25,8 +25,9 @@ func Skip() {
 }
 
 // PlayAndWait loads the given file and block until the file is done playing.
-func PlayAndWait(path string) {
+func PlayAndWait(path string, volume uint) {
 	SendCommand(fmt.Sprintf("loadfile \"%v\"", path))
+	SendCommand(fmt.Sprintf("volume %d%% 1", volume))
 	hasStopSignalListeners = true
 
 	// Send a query for the path every seconds. The response is expected in
