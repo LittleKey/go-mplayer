@@ -51,11 +51,11 @@ func PlayAndWait(path string, volume uint) {
 
 // PlayAndWaitWithDuration loads the given file and block until the file is
 // done playing.  This function will also stop playing after the given duration.
-func PlayAndWaitWithDuration(path string, duration time.Duration) {
+func PlayAndWaitWithDuration(path string, volume uint, duration time.Duration) {
 	go func() {
 		time.Sleep(duration)
 		SendCommand("stop")
 	}()
 
-	PlayAndWait(path)
+	PlayAndWait(path, volume)
 }
