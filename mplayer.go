@@ -29,6 +29,8 @@ var (
 	hasStopSignalListeners = false
 )
 
+type ErrorHandler func(error)
+
 // readOutput is a go routine transferring the stdout of MPlayer to a proper
 // channel.
 func readOutput(reader io.Reader) {
